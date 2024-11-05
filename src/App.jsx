@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 function App() {
   return (
     <main className='overflow-x-hidden'>
+      
       <NavBar />
       <Hero />
     </main>
