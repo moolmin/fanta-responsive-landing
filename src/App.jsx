@@ -7,6 +7,7 @@ import Banner from './components/Banner/Banner';
 import BannerText from './components/Banner/BannerText';
 import Blogs from './components/Blogs/Blogs';
 import FAQ from './components/FAQ/FAQ';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
       <BannerText />
       <Blogs />
       <FAQ />
-      
+      <Footer />
     </main>
   );
 }
