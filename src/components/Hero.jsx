@@ -122,7 +122,7 @@ const Hero = () => {
                   {activeData.subtitle}
                 </motion.p>
               </AnimatePresence>
-
+              <div className="w-7">
               <AnimatePresence mode="wait">
                 <UpdateFollower
                   mouseOptions={{
@@ -145,12 +145,14 @@ const Hero = () => {
                     animate="show"
                     exit="exit"
                     style={{ color: activeData.bgColor }}
-                    className="px-4 py-2 bg-white inline-block font-normal rounded-sm"
+                    className="px-6 py-2 bg-white inline-block font-normal rounded-sm"
                   >
-                    Order Now
+                    Order
                   </motion.button>
                 </UpdateFollower>
               </AnimatePresence>
+              </div>
+              
 
               {/* ______ Headphone List Separator ______ */}
 
