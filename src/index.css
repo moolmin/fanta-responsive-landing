@@ -8,6 +8,9 @@
   .text-shadow {
     text-shadow: -6px 6px 10px rgba(0, 0, 0, 0.4);
   }
+  :root {
+    --radius: 0.5rem;
+  }
 }
 
 @layer utilities {

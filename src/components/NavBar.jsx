@@ -1,55 +1,44 @@
 import React from "react";
 import Logo from "../assets/logo.png";
 import { MdMenu } from "react-icons/md";
-import { FaRegUser } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { UpdateFollower } from "react-mouse-follower";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "../components/ui/select"; 
+import { useTranslation } from "react-i18next"; 
 
-const NavbarMenu = [
-  {
-    id: 1,
-    title: "Home",
-    link: "#",
-  },
-  {
-    id: 2,
-    title: "Categories",
-    link: "#",
-  },
-  {
-    id: 3,
-    title: "Blog",
-    link: "#",
-  },
-  {
-    id: 4,
-    title: "About",
-    link: "#",
-  },
-  {
-    id: 5,
-    title: "Contact",
-    link: "#",
-  },
-];
 const Navbar = () => {
+  const { t, i18n } = useTranslation(); 
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
+
+  const NavbarMenu = [
+    { id: 1, title: t('navbar.title.home'), link: "#" },
+    { id: 2, title: t('navbar.title.categories'), link: "#" },
+    { id: 3, title: t('navbar.title.blog'), link: "#" },
+    { id: 4, title: t('navbar.title.about'), link: "#" },
+    { id: 5, title: t('navbar.title.contact'), link: "#" },
+  ];
+
   return (
-    <div className=" text-white py-3 md:py-8">
+    <div className="text-white py-3 md:py-8">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
         className="container flex justify-between items-center"
       >
-        {/* logo section */}
+        {/* Logo Section */}
         <div>
-          <img src={Logo} alt="" className="max-w-[100px] invert" />
+          <img src={Logo} alt="Logo" className="max-w-[100px] invert" />
         </div>
-        {/* Menu section */}
+
+        {/* Menu Section */}
         <div className="hidden md:block">
           <ul className="flex items-center gap-4 relative z-40">
             {NavbarMenu.map((item) => (
-              <li>
+              <li key={item.id}>
                 <UpdateFollower
                   mouseOptions={{
                     backgroundColor: "white",
@@ -69,6 +58,7 @@ const Navbar = () => {
               </li>
             ))}
 
+            {/* Language Selector */}
             <UpdateFollower
               mouseOptions={{
                 backgroundColor: "white",
@@ -78,12 +68,21 @@ const Navbar = () => {
                 mixBlendMode: "difference",
               }}
             >
-              <button className="text-xl ps-14">
-                <FaRegUser />
-              </button>
+              <div className="ps-14">
+                <Select onValueChange={changeLanguage}>
+                  <SelectTrigger className="text-base font-semibold py-2 px-3 uppercase">
+                    <SelectValue placeholder="Language" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="en">English</SelectItem>
+                    <SelectItem value="kr">한국어</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </UpdateFollower>
           </ul>
         </div>
+
         {/* Hamburger Icon */}
         <div className="md:hidden">
           <MdMenu className="text-4xl" />

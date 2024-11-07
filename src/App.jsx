@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import { UpdateFollower } from 'react-mouse-follower';
 import Products from './components/Products/Product';
@@ -8,10 +6,14 @@ import BannerText from './components/Banner/BannerText';
 import Blogs from './components/Blogs/Blogs';
 import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
+import { useTranslation } from 'react-i18next';
 
 function App() {
+  const {t} = useTranslation();
+
   return (
     <main className='overflow-x-hidden'>
+      {t ('WelcomeMessage')}
       <UpdateFollower
       mouseOptions={{
         backgroundColor: "white",

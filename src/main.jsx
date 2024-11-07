@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { MouseFollower } from 'react-mouse-follower'
+import './utils/i18n.ts'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
