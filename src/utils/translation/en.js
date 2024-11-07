@@ -63,5 +63,25 @@ export const translationEn = {
       }
     }
   },
-  
+  faq: {
+    title: "Frequently Asked Questions",
+    faqData: {
+      "1": {
+        "question": "What is Fanta?",
+        "answer": "Fanta is a popular fruit-flavored carbonated soft drink created by The Coca-Cola Company."
+      },
+      "2": {
+        "question": "What flavors does Fanta offer?",
+        "answer": "Fanta offers a variety of flavors including orange, grape, pineapple, and more!"
+      },
+      "3": {
+        "question": "Is Fanta gluten-free?",
+        "answer": "Yes, Fanta is gluten-free, making it suitable for those with gluten intolerance."
+      },
+      "4": {
+        "question": "How many calories are in a can of Fanta?",
+        "answer": "A 12 oz can of Fanta Orange contains about 160 calories."
+      }
+    }
+  }
 };
