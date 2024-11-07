@@ -47,7 +47,16 @@ const Hero = () => {
         <div className="flex flex-col justify-center py-14 md:py-0 xl:max-w-[500px] order-2 md:order-1">
           <div className="space-y-5 text-center md:text-left">
             <AnimatePresence mode="wait">
-              <UpdateFollower mouseOptions={{ /* ...options */ }}>
+            <UpdateFollower
+                  mouseOptions={{
+                    backgroundColor: "white",
+                    zIndex: 9999,
+                    followSpeed: 0.5,
+                    rotate: -720,
+                    mixBlendMode: "difference",
+                    scale: 10,
+                  }}
+                >
                 <motion.h1
                   key={activeData.id}
                   variants={SlideRight(0.2)}
@@ -56,7 +65,7 @@ const Hero = () => {
                   exit="exit"
                   className="text-3xl lg:text-6xl xl:text-7xl font-bold font-handwriting text-shadow"
                 >
-                  {t(`hero.headphoneData.product${activeData.id}.title`)}
+                  {t(`headphoneData.product${activeData.id}.title`)}
                 </motion.h1>
               </UpdateFollower>
             </AnimatePresence>
@@ -70,12 +79,25 @@ const Hero = () => {
                 exit="exit"
                 className="text-sm leading-loose text-white/80"
               >
-                {t(`hero.headphoneData.product${activeData.id}.subtitle`)}
+                {t(`headphoneData.product${activeData.id}.subtitle`)}
               </motion.p>
             </AnimatePresence>
 
             <AnimatePresence mode="wait">
-              <UpdateFollower mouseOptions={{ /* ...options */ }}>
+            <UpdateFollower
+                  mouseOptions={{
+                    backgroundColor: activeData.bgColor,
+                    zIndex: 9999,
+                    followSpeed: 0.5,
+                    rotate: -720,
+                    scale: 6,
+                    backgroundElement: (
+                      <div>
+                        <img src={activeData.image} />
+                      </div>
+                    ),
+                  }}
+                >
                 <motion.button
                   key={activeData.id}
                   variants={SlideRight(0.6)}
@@ -93,7 +115,16 @@ const Hero = () => {
             {/* Headphone list switcher */}
             <motion.div className="grid grid-cols-3 gap-10">
               {headphoneData.map((item) => (
-                <UpdateFollower mouseOptions={{ /* ...options */ }}>
+                <UpdateFollower
+                mouseOptions={{
+                  backgroundColor: item.bgColor,
+                  zIndex: 9999,
+                  followSpeed: 0.5,
+                  scale: 5,
+                  text: "View Details",
+                  textFontSize: "3px",
+                }}
+              >
                   <div
                     key={item.id}
                     onClick={() => handleActiveData(item)}
@@ -110,10 +141,10 @@ const Hero = () => {
                     />
                     <div className="text-center">
                       <p className="text-base line-through opacity-50">
-                        {t(`hero.headphoneData.product${item.id}.price`)}
+                        {t(`headphoneData.product${item.id}.price`)}
                       </p>
                       <p className="text-xl font-bold">
-                        {t(`hero.headphoneData.product${item.id}.price`)}
+                        {t(`headphoneData.product${item.id}.price`)}
                       </p>
                     </div>
                   </div>
