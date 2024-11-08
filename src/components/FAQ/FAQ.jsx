@@ -1,14 +1,16 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../ui/accordion";
 
 const FAQ = () => {
   const { t } = useTranslation();
-  const [active, setActive] = React.useState(null);
 
-  const handleClick = (index) => {
-    setActive(index === active ? null : index);
-  };
-
+  // Dummy data, replace `faqItems` with actual IDs or unique keys for FAQ items
   const faqItems = [1, 2, 3, 4]; 
 
   return (
@@ -17,25 +19,18 @@ const FAQ = () => {
         {t("faq.title")}
       </h1>
 
-      {faqItems.map((id, index) => (
-        <div key={index} className="mb-4 py-4 border-b border-gray-300">
-          <div
-            className="flex justify-between items-center cursor-pointer py-4"
-            onClick={() => handleClick(index)}
-          >
-            <h3 className="text-xl font-semibold text-gray-800">
+      <Accordion type="single" collapsible>
+        {faqItems.map((id) => (
+          <AccordionItem key={id} value={`item-${id}`}>
+            <AccordionTrigger>
               {t(`faq.faqData.${id}.question`)}
-            </h3>
-            <span>{active === index ? "-" : "+"}</span>
-          </div>
-
-          {active === index && (
-            <p className="text-gray-600">
+            </AccordionTrigger>
+            <AccordionContent>
               {t(`faq.faqData.${id}.answer`)}
-            </p>
-          )}
-        </div>
-      ))}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </div>
   );
 };

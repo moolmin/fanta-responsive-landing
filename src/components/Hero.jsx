@@ -128,7 +128,7 @@ const Hero = () => {
                   <div
                     key={item.id}
                     onClick={() => handleActiveData(item)}
-                    className="cursor-pointer space-y-3 hover:scale-105 transition-all"
+                    className="cursor-none space-y-3 hover:scale-105 transition-all"
                   >
                     <img
                       src={item.image}
@@ -139,9 +139,9 @@ const Hero = () => {
                           : "opacity-50"
                       }`}
                     />
-                    <div className="text-center">
+                    <div className="text-left">
                       <p className="text-base line-through opacity-50">
-                        {t(`headphoneData.product${item.id}.price`)}
+                        {t(`headphoneData.product${item.id}.priceOrigin`)}
                       </p>
                       <p className="text-xl font-bold">
                         {t(`headphoneData.product${item.id}.price`)}

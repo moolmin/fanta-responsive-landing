@@ -69,7 +69,7 @@ const Navbar = () => {
               }}
             >
               <div className="ps-14">
-                <Select onValueChange={changeLanguage}>
+                <Select onValueChange={changeLanguage} defaultValue={i18n.language}>
                   <SelectTrigger className="text-base font-semibold py-2 px-3 uppercase">
                     <SelectValue placeholder="Language" />
                   </SelectTrigger>

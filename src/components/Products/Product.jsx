@@ -29,7 +29,7 @@ const Products = () => {
     <div className="bg-gray-100 py-8">
       <div className="container py-14">
         <motion.h1
-          variants={fadeUp(0.2)}
+          variants={fadeUp(0.1)}
           initial="hidden"
           whileInView="show"
           className="text-3xl font-bold text-center pb-10"

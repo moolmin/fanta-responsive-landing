@@ -6,14 +6,14 @@ import BannerText from './components/Banner/BannerText';
 import Blogs from './components/Blogs/Blogs';
 import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 
 function App() {
-  const {t} = useTranslation();
+  // const {t} = useTranslation();
 
   return (
-    <main className='overflow-x-hidden'>
-      {t ('WelcomeMessage')}
+    <main className='overflow-x-hidden cursor-none'>
+      {/* {t ('WelcomeMessage')} */}
       <UpdateFollower
       mouseOptions={{
         backgroundColor: "white",
